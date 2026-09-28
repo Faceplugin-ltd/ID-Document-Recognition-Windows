@@ -7,6 +7,7 @@
 #### 🤗 Hugging Face - [Here](https://huggingface.co/FacePlugin-Ltd)
 
 #### 🛟 Help Center - [Here](https://doc.faceplugin.com)
+#### ✈️ Telegram - [@facepluginSDK](https://t.me/facepluginSDK)
 
 #### 🐳 Docker Hub - [Here](https://hub.docker.com/u/faceplugin)
 
@@ -357,5 +358,6 @@ HTTP endpoints: `/api/health`, `/api/machinecode`, `/api/licenseStatus`, `/api/b
 
 <div align="left">
 <a target="_blank" href="mailto:info@faceplugin.com"><img src="https://img.shields.io/badge/email-info@faceplugin.com-blue.svg?logo=gmail" alt="faceplugin.com"></a>&emsp;
+<a target="_blank" href="https://t.me/facepluginSDK"><img src="https://img.shields.io/badge/telegram-@facepluginSDK-blue.svg?logo=telegram" alt="Telegram @facepluginSDK"></a>&emsp;
 <a target="_blank" href="https://wa.me/+14692784822"><img src="https://img.shields.io/badge/whatsapp-faceplugin-blue.svg?logo=whatsapp" alt="faceplugin.com"></a>
 </div>
