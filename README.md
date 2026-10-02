@@ -22,7 +22,7 @@
 - [ ] Clone `ID-Document-Recognition-Windows`
 - [ ] Download runtime into `lib\cpu\` — [Get the runtimes](#get-the-runtimes)
 - [ ] `pip install -r requirements.txt` then `run.bat` — API on **8082**
-- [ ] Copy machine code `FPMC1.…` from the terminal (or `GET /api/machinecode`)
+- [ ] Copy machine code machine code from the terminal (or `GET /api/machinecode`)
 - [ ] [Contact us](#contact) to obtain a license key → enter it at the prompt or use `POST /api/activate`
 - [ ] Try Postman, curl, or Gradio on **9002** (`run_demo.bat`)
 
@@ -82,7 +82,7 @@ All processing stays on your PC. **No** biometric data is sent to FacePlugin clo
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1    | Windows 10/11 **x64**, Python 3.10+                                                                                                                                                                                                   |
 | 2    | Runtime libraries in `./lib/cpu/` — [Get the runtimes](#get-the-runtimes)                                                                                                                                                             |
-| 3    | You do not need a license to start the API the first time. Copy the machine code (`FPMC1.…`) from the logs or `GET /api/machinecode`. Send it to FacePlugin ([contact](#contact)) to get an `FP1.…` key and unlock product endpoints. |
+| 3    | You do not need a license to start the API the first time. Copy the machine code from the logs or `GET /api/machinecode`. Send it to FacePlugin ([contact](#contact)) to get a license key and unlock product endpoints. |
 
 
 You do **not** need a license to start the API once. Product endpoints unlock after you activate.
@@ -156,7 +156,7 @@ run.bat
 
 API: **[http://127.0.0.1:8082](http://127.0.0.1:8082)**
 
-The API starts even if activation fails. Copy the **machine code** (`FPMC1.…`) from the log and send it to FacePlugin. When prompted, paste your `FP1.` license key (or skip and activate later).
+The API starts even if activation fails. Copy the **machine code** (machine code) from the log and send it to FacePlugin. When prompted, paste your license key (or skip and activate later).
 
 ---
 
@@ -167,14 +167,14 @@ The API starts even if activation fails. Copy the **machine code** (`FPMC1.…`)
 Licenses are **offline** and bound to your machine. Offline cryptography is pre-packaged within the SDK — no third-party licensing libraries or external OpenSSL installations are required.
 
 1. **Start the server** ([above](#start-the-api)). A license is not required for the first start.
-2. **Copy the machine code** from the terminal. It looks like `FPMC1.…`.
+2. **Copy the machine code** from the terminal. Copy it from the logs or `GET /api/machinecode`.
 3. **Send that machine code** to FacePlugin ([contact](#contact)). We will issue a license key for that code.
 4. **Activate** with the license key — either paste it when `run.bat` prompts you (see screenshot above), or:
 
 ```bat
-:: After run.bat, paste the FP1. key on the terminal like the screenshot. You can try 3 times.
+:: After run.bat, paste the license key on the terminal like the screenshot. You can try 3 times.
 
-:: Or paste the FP1. key into .\license.txt, then:
+:: Or paste the license key into .\license.txt, then:
 
 curl -s -X POST http://127.0.0.1:8082/api/activate -H "Content-Type: text/plain" --data-binary @license.txt
 
@@ -281,7 +281,7 @@ Open **[http://127.0.0.1:9002](http://127.0.0.1:9002)**. Examples when present: 
 
 Two paths. You do **not** need the Gradio demo in production.
 
-**HTTP** (any language) — run Option A, B, or C, then call the API:
+**HTTP** (any language) — start the API, then call:
 
 ```bash
 curl -s -X POST http://127.0.0.1:8082/api/documentRecognition \
@@ -300,7 +300,7 @@ curl -s -X POST http://127.0.0.1:8082/api/documentProcess \
 ```python
 import sdk
 
-machine_code = sdk.get_machine_code()  # FPMC1.…
+machine_code = sdk.get_machine_code()  # machine code
 sdk.activate("license.txt")
 sdk.init_sdk()
 result = sdk.document_process(
@@ -322,7 +322,7 @@ Use the Python bindings in `[sdk.py](sdk.py)`. Return code `0` means success.
 import sdk
 
 machine_code = sdk.get_machine_code()
-print("machineCode:", machine_code)  # FPMC1.…
+print("machineCode:", machine_code)  # machine code
 
 ret = sdk.activate("license.txt")
 ret = sdk.init_sdk()
